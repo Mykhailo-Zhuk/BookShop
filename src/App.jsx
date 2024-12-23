@@ -1,18 +1,20 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import "./App.css";
 import Menu from "./components/Menu";
 import SearchMenu from "./components/SearchMenu";
-// import Carusel from "../src/components/Carusel";
-function App() {
-  const [count, setCount] = useState(0);
+import { Outlet } from "react-router-dom";
+import EmblaCarousel from "./components/Carusel";
 
+const OPTIONS = {};
+const SLIDE_COUNT = 5;
+const SLIDES = Array.from(Array(SLIDE_COUNT).keys());
+
+function App() {
   return (
     <>
       <Menu />
       <SearchMenu />
-      {/* <Carusel /> */}
+      <Outlet />
+      <EmblaCarousel slides={SLIDES} options={OPTIONS} />{" "}
     </>
   );
 }
